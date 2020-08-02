@@ -2,7 +2,7 @@ import React from 'react';
 
 function SidebarUserCard(){
     return(
-      <div class="flex justify-between mb-6 overflow-hidden pt-2 hover:bg-gray-300">
+      <div class="flex justify-between mb-6 overflow-hidden py-3 hover:bg-gray-300 px-3">
       <div class="flex items-center">
         <img class="rounded-full mr-4"
           style={{ width: "2.5rem", height: "2.5rem" }}
