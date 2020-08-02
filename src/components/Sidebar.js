@@ -32,7 +32,7 @@ function Sidebar() {
       <SearchBar />
       <div className="relative"
       style={{height:"calc(100vh - 15rem)"}}>
-        <div className="absolute top-0 bottom-0 left-0 right-0 overflow-y-scroll overflow-x-hidden  ">
+        <div className="absolute top-0 bottom-0 left-0 right-0 overflow-y-scroll overflow-x-hidden">
           <SidebarUserCard />
           <SidebarUserCard />
           <SidebarUserCard />
