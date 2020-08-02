@@ -7,7 +7,7 @@ import Main from './components/Main';
 
 function App() {
   return (
-    <div className="bg-blue-500 min-h-screen">
+    <div className="bg-blue-500 max-h-screen">
       <div className="flex max-w-6xl mx-auto my-auto h-screen rounded">
         <Sidebar />
         <Main />
