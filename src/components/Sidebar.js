@@ -1,10 +1,19 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import SearchBar from './SearchBar';
 import SidebarUserCard from './SidebarUserCard';
 import pen from '../public/assets/pen.png';
 import plus from '../public/assets/plus.png'
 
-function Sidebar() {
+function Sidebar(props) {
+  const chats=props.chats;
+
+  const dashboardRedirect=(index)=>{
+    props.redirect(index);
+  }
+
+  const userIsSender=(chat)=> chat.messages[chat.messages.length -1].sender === props.email;
+
+
   return (
     <div class="bg-gray-100 text-black md:w-5/12 lg:w-4/12 pt-10 hidden md:block relative">
       <div class="flex justify-between mb-6 px-4">
@@ -33,29 +42,23 @@ function Sidebar() {
       <div className="relative"
       style={{height:"calc(100vh - 15rem)"}}>
         <div className="absolute top-0 bottom-0 left-0 right-0 overflow-y-scroll overflow-x-hidden">
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
-          <SidebarUserCard />
+          {
+            chats ? chats.map((_chat, _index)=>{
+              let showBell = false;
+              if(_chat.receiverHasRead === false && !userIsSender(_chat))
+                  showBell=true;
+              return(
+                <SidebarUserCard 
+                          history={props.history}
+                          key={_index}
+                          id={_index}
+                          chat={_chat}
+                          me={props.email}
+                          redirect={dashboardRedirect}
+                          showBell={showBell}/>
+              )
+            }) : <p>Loading</p>
+          }
         </div>
       </div>
 
