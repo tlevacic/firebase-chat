@@ -5,9 +5,9 @@ function SidebarUserCard(props){
   const id=props.id;
   const user=props.chat.users.filter(user => user!==props.me)[0];
     return(
-      <div className={`flex justify-between mb-6 overflow-hidden py-3 hover:bg-gray-300 px-3 ${props.showBell ? "border-blue-400 border-l-4 " : ""}`}
+      <div className={`flex justify-between mb-6 overflow-hidden hover:bg-gray-300 px-3 ${props.showBell ? "border-blue-400 border-l-4 " : ""} ${props.isMobile ? "rounded-lg w-11/12 bg-gray-200 mx-auto py-2 shadow-md " : "py-3"}`}
       onClick={(e) => props.redirect(id)}>
-      <div class="flex items-center w-full">
+      <div class="flex items-center w-full ">
         <img class="rounded-full mr-4"
           style={{ width: "2.5rem", height: "2.5rem" }}
           src="https://i2-prod.mirror.co.uk/incoming/article5663087.ece/ALTERNATES/s615/Yolande-Pendlebury-main.jpg" alt="Avatar of Jonathan Reinink" />

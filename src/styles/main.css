@@ -621,6 +621,14 @@ video {
   }
 }
 
+@font-face {
+  font-family: montserrat;
+
+  font-weight: 400;
+
+  src: url(/src/fonts/Montserrat-Light.ttf) format("ttf");
+}
+
 .container {
   width: 100%;
 }

@@ -8,8 +8,10 @@
     "@testing-library/user-event": "^7.1.2",
     "firebase": "^6.0.2",
     "react": "^16.13.1",
+    "react-device-detect": "^1.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.2.0",
+    "react-responsive": "^8.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },

@@ -12,7 +12,7 @@ function MessageInput(props) {
     return (
         <div className="bottom-0 absolute left-0 right-0 px-3 pb-6 border-t-2 pt-6">
             <div class="flex flex-wrap w-full justify-around align-center">
-                <div class="w-9/12">
+                <div class="w-full md:w-11/12">
                     {<p className="text-xs font-bold text-red-700">
                         {errors.message && errors.message.message}
                     </p>}

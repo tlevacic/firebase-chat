@@ -1,4 +1,5 @@
 import React from 'react';
+import back from '../public/assets/back.png';
 
 function OnlineStatus(){
     return(
@@ -6,9 +7,16 @@ function OnlineStatus(){
     )    
 }
 
-function Header() {
+function Header(props) {
     return (
-        <div className="pt-10 pb-2 border-b-2 text-gray-700">
+        <div className={`pb-2 border-b-2 text-gray-700 ${props.isMobile ? "pt-4 " : "pt-10 "}`}>
+            {props.isMobile ? 
+            <div onClick={(e)=> props.showSidebar()}>
+                <img src={back}
+            className="mb-2"
+            style={{width: "1.4rem", heeight: "1.4rem"}}/>
+            </div>
+            : null}
             <div class="flex items-center w-full justify-between">
                 <div className="flex flex-row h-full align-top  ">
                     <img class="rounded-full mr-4"
