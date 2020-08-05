@@ -80,6 +80,7 @@ const SignUp = (props) => {
                                 </span>
                                 <input
                                     placeholder="password"
+                                    type="password"
                                     class="relative py-1 px-2 pl-10 w-full border-b-2 bg-white outline-none text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-purple-400"
                                     name="password"
                                     ref={register({
@@ -100,6 +101,7 @@ const SignUp = (props) => {
                                 </span>
                                 <input
                                     placeholder="Confirm password"
+                                    type="password"
                                     class="relative py-1 px-2 pl-10 w-full border-b-2 bg-white outline-none text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-purple-400"
                                     name="cpassword"
                                     ref={register({
@@ -115,7 +117,7 @@ const SignUp = (props) => {
                             {errors.password && errors.password.message}
                         </p>}
                         {!passwordConf &&
-                            <p className="text-xs font-bold text-red-700">
+                            <p className="text-xs text-center text-red-500">
                                 Password do not match
                        </p>}
 

@@ -69,6 +69,7 @@ const Login = (props) => {
                                     placeholder="password"
                                     class="relative py-1 px-2 pl-10 w-full border-b-2 bg-white outline-none text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-purple-400"
                                     name="password"
+                                    type="password"
                                     ref={register({
                                         required: "You must specify a password",
                                         minLength: {
