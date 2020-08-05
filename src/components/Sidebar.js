@@ -15,26 +15,23 @@ function Sidebar(props) {
 
 
   return (
-    <div class="bg-gray-100 text-black w-full md:w-5/12 lg:w-4/12 pt-10 relative">
+    <div class="text-black w-full md:w-5/12 lg:w-4/12 pt-10 relative"
+    style={{fontFamily: "montserrat"}}>
       <div class="flex justify-between mb-6 px-4">
         <div class="flex items-center w-full justify-between">
-          <div className="flex flex-row h-full align-top  ">
-            <img class="border-blue-500 border-2 rounded-full mr-4"
-              style={{ width: "3.5rem", height: "3.5rem" }}
-              src="https://i2-prod.mirror.co.uk/incoming/article5663087.ece/ALTERNATES/s615/Yolande-Pendlebury-main.jpg" alt="Avatar of Jonathan Reinink" />
-            <div class="text-sm">
-              <p class="text-blue-500 font-extrabold">Jonathan Reinink</p>
-              <p class="text-gray-600 text-xs">Aug 18</p>
+          <div className="flex flex-row h-full align-top">
+            <div className="rounded-full text-white font-extrabold bg-purple-600 mr-4 items-center flex justify-center" style={{width: "3.5rem", height:"3.5rem"}}>
+              T
             </div>
-          </div>
-          <div style={{ width: "1rem", height: "1rem" }}>
-            <img
-              className="w-full h-full"
-              src={pen} />
+            <div class="text-sm">
+              <p class="text-purple-600 text-md font-extrabold">Jonathan Reinink</p>
+              <p class="text-gray-600 text-xs">Zagreb, Croatia</p>
+            </div>
           </div>
         </div>
       </div>
-      <div className="absolute z-10 bottom-0 mb-10 left-0 ml-4 bg-white rounded-full w-16 h-16">
+      <div className="absolute z-10 right-0 mr-2 mb-10 mr-6 bg-white rounded-full w-8 h-8"
+      style={{top:"3rem"}}>
         <img src={plus} className="w-full h-full rounded-full" />
       </div>
 

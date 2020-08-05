@@ -86,30 +86,24 @@ const Dashboard = (props) => {
     }, []);
     if (isMobile && showSidebar) {
         return (
-            <div className="bg-blue-500 max-h-screen">
-                <div className="flex max-w-6xl mx-auto my-auto h-screen rounded">
+                <div className="flex mx-auto my-auto h-screen rounded">
                     <Sidebar history={props.history} redirect={dashboardRedirect} email={email} chats={chats} isMobile={isMobile}/>
                 </div>
-            </div>
         )
     }
     else if (isMobile && showMessage) {
         return (
-            <div className="bg-blue-500 max-h-screen">
-                <div className="flex max-w-6xl mx-auto my-auto h-screen rounded">
+                <div className="flex mx-auto my-auto h-screen rounded">
                     <Main history={props.history} id={selectedChat} chats={chats} email={email} sendMessage={sendMessage} isMobile={isMobile} showSidebar={showSidebarFn}/>
                 </div>
-            </div>
         )
     }
     else {
         return (
-            <div className="bg-blue-500 max-h-screen">
-                <div className="flex max-w-6xl mx-auto my-auto h-screen rounded">
+                <div className="flex mx-auto my-auto h-screen rounded">
                     <Sidebar history={props.history} redirect={dashboardRedirect} email={email} chats={chats} isMobile={isMobile}/>
                     <Main history={props.history} id={selectedChat} chats={chats} email={email} sendMessage={sendMessage} isMobile={isMobile} showSidebar={showSidebarFn}/>
                 </div>
-            </div>
         )
     }
 }
