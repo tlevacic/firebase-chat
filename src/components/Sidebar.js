@@ -20,12 +20,12 @@ function Sidebar(props) {
       <div class="flex justify-between mb-6 px-4">
         <div class="flex items-center w-full justify-between">
           <div className="flex flex-row h-full align-top">
-            <div className="rounded-full text-white font-extrabold bg-purple-600 mr-4 items-center flex justify-center" style={{width: "3.5rem", height:"3.5rem"}}>
-              T
+            <div className="rounded-full text-white uppercase font-extrabold bg-purple-400 mr-4 items-center flex justify-center" style={{width: "3.5rem", height:"3.5rem"}}>
+              {props.email && props.email.charAt(0)}
             </div>
             <div class="text-sm">
-              <p class="text-purple-600 text-md font-extrabold">Jonathan Reinink</p>
-              <p class="text-gray-600 text-xs">Zagreb, Croatia</p>
+              <p class="text-purple-400 text-md font-extrabold">{props.email}</p>
+              <p class="text-gray-400 text-xs">Zagreb, Croatia</p>
             </div>
           </div>
         </div>

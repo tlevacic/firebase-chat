@@ -2,18 +2,24 @@ import React from 'react';
 
 function MessageContent(props) {
     const from=props.sender===props.email;
+    let styleMessage=from ?  "bg-purple-500 text-white" : " bg-gray-300 text-gray-600";
+    let isMobileStyle= props.isMobile ? styleMessage.concat(" rounded-md") : from ? styleMessage.concat(" rounded-tl-full rounded-br-full rounded-bl-full") : styleMessage.concat(" rounded-tr-full rounded-br-full rounded-bl-full");
+    const avatarBgStyle=from ? " bg-purple-500" : " bg-gray-300 ";
+    const myAvatar= props.email.charAt(0);
+    const userAvatar= props.sender.charAt(0);
+    const showAvatar=from ? myAvatar : userAvatar;
 
     return (
-        <div className={`flex center items-center justify-end my-4 ${from ? "flex-row" : "flex-row-reverse"}`}>
-            <div className={`px-4 py-1 rounded-tl-md rounded-tr-md sm:w-full md:w-6/12
-             ${from ? "rounded-bl-md bg-blue-500 text-white" : "rounded-br-md bg-gray-200 text-gray-600"}`}>
+        <div className={`flex center items-center justify-end my-4  ${from ? "flex-row" : "flex-row-reverse"}`}>            
+            <div>
+            <p className={`text-xs text-gray-500 ${from ? " text-right " : " text-left "}`}>{props.date}</p>
+                <div className={`px-8 py-2 ${isMobileStyle}`}>
                 <p className="text-sm">{props.message}</p>
+                </div>
             </div>
-           <div className="px-2 hidden md:block">
-           <img class="rounded-full"
-                style={{ width: "1.4rem", height: "1.4rem" }}
-                src="https://i2-prod.mirror.co.uk/incoming/article5663087.ece/ALTERNATES/s615/Yolande-Pendlebury-main.jpg" alt="Avatar of Jonathan Reinink" />
-           </div>
+           <div className={`hidden md:flex mx-4 rounded-full min-w-6 min-h-6 text-white font-bold  items-center justify-center ${avatarBgStyle}`}>
+              <span className="uppercase">{showAvatar}</span>
+            </div>
         </div>
     )
 }

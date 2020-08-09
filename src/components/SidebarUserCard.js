@@ -1,9 +1,17 @@
 import React from 'react';
 import bell from '../public/assets/bell.png';
+import moment from 'moment';
 
 function SidebarUserCard(props){
   const id=props.id;
   const user=props.chat.users.filter(user => user!==props.me)[0];
+  const lastMessageObject= props.chat.messages[props.chat.messages.length - 1];
+
+  const convertDate=(timestamp)=>{
+    var time = moment(moment(timestamp).format('YYYYMMDDkkmmss'), 'YYYYMMDDkkmmss').fromNow();
+    return time;
+ }
+
     return(
       <div className={`flex justify-between bg-white mb-3 overflow-hidden px-3 rounded-lg w-11/12 mx-auto py-2 shadow-2xl border-gray-100 border-r-2 ${props.showBell && "border-purple-500" }`}
             onClick={(e) => props.redirect(id)}>
@@ -22,7 +30,7 @@ function SidebarUserCard(props){
         </div>
         <div class="h-full ml-2 flex flex-col justify-around items-end">
         {props.showBell ? <img src={bell} style={{width: "1rem", height:"1rem"}}/> : null}
-          <p class="text-gray-500" style={{fontSize:".7rem"}}>10:30AM</p>
+          <p class="text-gray-500" style={{fontSize:".7rem"}}>{convertDate(lastMessageObject.timestamp)}</p>
         </div>
       </div>
     </div>
