@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import mail from './public/assets/mail.png';
@@ -10,12 +10,20 @@ const firebase = require("firebase");
 const Login = (props) => {
     const [firebaseErrors, setFirebaseErrors] = useState(null);
     const { handleSubmit, register, errors } = useForm();
+
+    useEffect(()=>{
+        if(localStorage.getItem("user")){
+            props.history.push("/dashboard");
+        }
+    })
+
     const onSubmit = values => {
         firebase
             .auth()
             .signInWithEmailAndPassword(values.email, values.password)
             .then(() => {
                 props.history.push("/dashboard")
+                localStorage.setItem("user",values.email);
             }, error => {
                 setFirebaseErrors("Wrong credentials!")
             })

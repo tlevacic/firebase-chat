@@ -31,7 +31,7 @@ function Main(props) {
         return(
             <div className="h-full w-full md:w-7/12 lg:w-8/12 bg-white px-3 relative flex justify-center items-center" id="scroll-container">
                 <img className="h-24 w-24" src={chat}/>
-            </div>
+            </div> 
         )
     }
 
