@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import Modal from 'react-modal';
-import SearchBar from './SearchBar';
 import MessageInput from './MessageInput';
 import SidebarUserCard from './SidebarUserCard';
 import pen from '../public/assets/pen.png';
 import plus from '../public/assets/plus.png'
 import mail from '../public/assets/mail.png'
 import send from '../public/assets/send.png';
+import logout from '../public/assets/logout.png';
 const firebase = require("firebase");
 
 const customStyles = {
@@ -48,17 +48,17 @@ function Sidebar(props) {
         <h2 className="text-purple-400 font-bold">Create new message</h2>
         <AddNewMessage chats={chats} closeModal={closeModal} />
       </Modal>
-      <div class="text-black w-full md:w-5/12 lg:w-4/12 pt-10 relative"
+      <div className="text-black w-full md:w-5/12 lg:w-4/12 pt-10 relative"
         style={{ fontFamily: "montserrat" }}>
-        <div class="flex justify-between mb-6 px-4">
-          <div class="flex items-center w-full justify-between">
+        <Logout />
+        <div className="flex justify-between mb-6 px-4">
+          <div className="flex items-center w-full justify-between">
             <div className="flex flex-row h-full align-top">
-              <div className="rounded-full text-white uppercase font-extrabold bg-purple-400 mr-4 items-center flex justify-center" style={{ width: "3.5rem", height: "3.5rem" }}>
+              <div className="rounded-full text-white uppercase font-extrabold bg-purple-600 mr-4 items-center flex justify-center" style={{ width: "3.5rem", height: "3.5rem" }}>
                 {props.email && props.email.charAt(0)}
               </div>
-              <div class="text-sm">
-                <p class="text-purple-400 text-md font-extrabold">{props.email}</p>
-                <p class="text-gray-400 text-xs">Zagreb, Croatia</p>
+              <div className="text-sm">
+                <p className="text-purple-600 text-md font-extrabold">{props.email}</p>
               </div>
             </div>
           </div>
@@ -68,10 +68,9 @@ function Sidebar(props) {
           <img src={plus} className="w-full h-full rounded-full" onClick={() => openModal()} />
         </div>
 
-        <SearchBar />
         <div className="relative"
           style={{ height: "calc(100vh - 15rem)" }}>
-          <div className="absolute top-0 bottom-0 left-0 right-0 overflow-y-scroll overflow-x-hidden">
+          <div className={`absolute top-0 bottom-0 left-0 right-0 overflow-y-scroll overflow-x-hidden`}>
             {
               chats ? chats.map((_chat, _index) => {
                 let showBell = false;
@@ -113,43 +112,43 @@ const AddNewMessage = props => {
     const UserExists = await userExists(values.email);
     if (UserExists) {
       const ChatExists = await chatExists(values.email);
-      ChatExists ? goToChat(docKey, values.email, values.message) : createChat(docKey,values.message, values.email);
+      ChatExists ? goToChat(docKey, values.email, values.message) : createChat(docKey, values.message, values.email);
       setEmailError(false);
     } else {
       setEmailError(true);
     }
   };
 
-  const sendMessage = (user, msg,docKey) => {
+  const sendMessage = (user, msg, docKey) => {
     firebase
-            .firestore()
-            .collection('chats')
-            .doc(docKey)
-            .update({
-                messages: firebase.firestore.FieldValue.arrayUnion({
-                    sender: firebase.auth().currentUser.email,
-                    message: msg,
-                    timestamp: Date.now()
-                }),
-                receiverHasRead: false
-            });
-        props.closeModal();
+      .firestore()
+      .collection('chats')
+      .doc(docKey)
+      .update({
+        messages: firebase.firestore.FieldValue.arrayUnion({
+          sender: firebase.auth().currentUser.email,
+          message: msg,
+          timestamp: Date.now()
+        }),
+        receiverHasRead: false
+      });
+    props.closeModal();
   }
 
-  const createChat =async (docKey, msg, sendTo) => {
+  const createChat = async (docKey, msg, sendTo) => {
     await firebase
-    .firestore()
-    .collection("chats")
-    .doc(docKey)
-    .set({
-      receiverHasRead: false,
-      users:[firebase.auth().currentUser.email,sendTo],
-      messages:[{
-        message: msg,
-        sender: firebase.auth().currentUser.email,
-        timestamp: Date.now()
-      }]
-    })
+      .firestore()
+      .collection("chats")
+      .doc(docKey)
+      .set({
+        receiverHasRead: false,
+        users: [firebase.auth().currentUser.email, sendTo],
+        messages: [{
+          message: msg,
+          sender: firebase.auth().currentUser.email,
+          timestamp: Date.now()
+        }]
+      })
     console.log(msg);
     props.closeModal();
   }
@@ -190,14 +189,14 @@ const AddNewMessage = props => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex items-center flex-col" style={{ width: "50vw", height: "50vh" }}>
-      <div class="p-2 w-full mt-10">
-        <div class="relative mb-3 flex flex-wrap items-stretch">
-          <span class="absolute z-10 py-3 pl-3 w-8 h-full leading-snug bg-transparent rounded text-base font-normal text-gray-400 text-center flex items-center justify-center">
+      <div className="p-2 w-full mt-10">
+        <div className="relative mb-3 flex flex-wrap items-stretch">
+          <span className="absolute z-10 py-3 pl-3 w-8 h-full leading-snug bg-transparent rounded text-base font-normal text-gray-400 text-center flex items-center justify-center">
             <img src={mail} />
           </span>
           <input
             placeholder="Email  "
-            class="relative py-1 px-2 pl-10 w-full bg-white border-b-2 outline-none text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-purple-400"
+            className="relative py-1 px-2 pl-10 w-full bg-white border-b-2 outline-none text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-purple-400"
             name="email"
             ref={register({
               required: "Email is required",
@@ -216,15 +215,15 @@ const AddNewMessage = props => {
         Email doesn't exists
       </p>}
       <div className="bottom-0 absolute left-0 right-0 px-3 pb-6 border-t-2 pt-6 flex">
-        <div class="flex flex-wrap w-full justify-around align-center">
-          <div class="w-full md:w-11/12">
+        <div className="flex flex-wrap w-full justify-around align-center">
+          <div className="w-full md:w-11/12">
             {<p className="text-xs text-center text-red-500">
               {errors.message && errors.message.message}
             </p>}
             <div className="flex">
               <input
                 id="message-input"
-                class="block w-full py-2 px-2 shadow-lg bg-white text-sm text-gray-700 border border-gray-100 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Write Something"
+                className="block w-full py-2 px-2 shadow-lg bg-white text-sm text-gray-700 border border-gray-100 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Write Something"
                 name="message"
                 ref={register({
                   required: "Field is required",
@@ -242,4 +241,19 @@ const AddNewMessage = props => {
   )
 }
 
+
+const Logout = (props) => {
+
+  const logoutFn = () => {
+    firebase.auth().signOut();
+    localStorage.clear();
+  }
+
+  return (
+    <div className="absolute bottom-0 left-0 w-10 h-10 ml-4 mb-6"
+      onClick={() => logoutFn()}>
+      <img src={logout} />
+    </div>
+  )
+}
 export default Sidebar;

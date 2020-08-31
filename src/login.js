@@ -45,14 +45,14 @@ const Login = (props) => {
                 </div>
                 <div className="w-full m-auto mt-20">
                     <form onSubmit={handleSubmit(onSubmit)} className="flex items-center flex-col w-full">
-                        <div class="p-2 w-11/12 md:w-9/12 lg:w-6/12">
-                            <div class="relative mb-3 flex flex-wrap items-stretch">
-                                <span class="absolute z-10 py-3 pl-3 w-8 h-full leading-snug bg-transparent rounded text-base font-normal text-gray-400 text-center flex items-center justify-center">
+                        <div className="p-2 w-11/12 md:w-9/12 lg:w-6/12">
+                            <div className="relative mb-3 flex flex-wrap items-stretch">
+                                <span className="absolute z-10 py-3 pl-3 w-8 h-full leading-snug bg-transparent rounded text-base font-normal text-gray-400 text-center flex items-center justify-center">
                                     <img src={mail} />
                                 </span>
                                 <input
                                     placeholder="Email  "
-                                    class="relative py-1 px-2 pl-10 w-full bg-white border-b-2 outline-none text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-purple-400"
+                                    className="relative py-1 px-2 pl-10 w-full bg-white border-b-2 outline-none text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-purple-400"
                                     name="email"
                                     ref={register({
                                         required: "Email is required",
@@ -68,14 +68,14 @@ const Login = (props) => {
                             {errors.email && errors.email.message}
                         </p>}
 
-                        <div class="p-2 w-11/12 md:w-9/12 lg:w-6/12">
-                            <div class="relative mb-3 w-full flex flex-wrap items-stretch">
-                                <span class="absolute z-10 py-3 pl-3 w-8 h-full leading-snug bg-transparent rounded text-base font-normal text-gray-400 text-center flex items-center justify-center">
+                        <div className="p-2 w-11/12 md:w-9/12 lg:w-6/12">
+                            <div className="relative mb-3 w-full flex flex-wrap items-stretch">
+                                <span className="absolute z-10 py-3 pl-3 w-8 h-full leading-snug bg-transparent rounded text-base font-normal text-gray-400 text-center flex items-center justify-center">
                                     <img src={key} />
                                 </span>
                                 <input
                                     placeholder="password"
-                                    class="relative py-1 px-2 pl-10 w-full border-b-2 bg-white outline-none text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-purple-400"
+                                    className="relative py-1 px-2 pl-10 w-full border-b-2 bg-white outline-none text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-purple-400"
                                     name="password"
                                     type="password"
                                     ref={register({

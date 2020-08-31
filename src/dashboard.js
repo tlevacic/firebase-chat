@@ -101,7 +101,7 @@ const Dashboard = (props) => {
     else {
         return (
                 <div className="flex mx-auto my-auto h-screen rounded">
-                    <Sidebar history={props.history} redirect={dashboardRedirect} email={email} chats={chats} isMobile={isMobile}/>
+                    <Sidebar history={props.history} redirect={dashboardRedirect} email={email} chats={chats} isMobile={isMobile} setSelectedChat={setSelectedChat}/>
                     <Main history={props.history} id={selectedChat} chats={chats} email={email} sendMessage={sendMessage} isMobile={isMobile} showSidebar={showSidebarFn}/>
                 </div>
         )
