@@ -30,15 +30,14 @@ const Login = (props) => {
 
     };
     return (
-        <div className="w-screen justify-center h-screen items-center flex flex-col font-montserrat"
-         style={{fontFamily:"montserrat"}}>
+        <div className="w-screen justify-center h-screen items-center flex flex-col font-montserrat">
              <div className="mb-12">
                  <img src={chat}/>
              </div>
             <div className="flex justify-center flex-col w-full md:w-6/12">
                 <div className=" -mt-10">
                     <p className="text-4xl text-center font-bold">Login to chat.</p>
-                    <p className="text-md text-center text-gray-500">Remember your friends anytime and contact them.</p>
+                    <p className="text-md text-center text-gray-500 px-1">Remember your friends anytime and contact them.</p>
                     {firebaseErrors ? <p className="text-xs text-center text-red-500 mt-10">
                     {firebaseErrors}
                 </p> : null}

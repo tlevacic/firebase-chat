@@ -19,12 +19,11 @@ function MessageInput(props) {
                     <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-row">
                         <input
                             id="message-input"
-                            className="block w-full py-2 px-2 shadow-lg bg-white text-sm text-gray-700 border border-gray-100 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Write Something"
+                            className="block rounded-10px w-full py-2 px-2 shadow-lg bg-white text-sm text-gray-700 border border-gray-100 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Write Something"
                             name="message"
                             ref={register({
                                 required: "Field is required",
-                            })}
-                            style={{ borderRadius: "10px" }} />
+                            })}/>
                         <button type="submit" className="ml-2">
                             <img src={send} />
                         </button>

@@ -134,13 +134,16 @@ module.exports = {
       '0': '0',
       '1': '0.25rem',
       '2': '0.5rem',
+      '2.5': '2.5rem',
       '3': '0.75rem',
       '4': '1rem',
       '5': '1.25rem',
       '6': '1.5rem',
+      '7': '1.4rem',
       '8': '2rem',
       '10': '2.5rem',
       '12': '3rem',
+      '13': '3.5rem',
       '16': '4rem',
       '20': '5rem',
       '24': '6rem',
@@ -149,6 +152,8 @@ module.exports = {
       '48': '12rem',
       '56': '14rem',
       '64': '16rem',
+      '50vw':'50vw',
+      '50vh': '50vh'
     },
     backgroundColor: theme => theme('colors'),
     backgroundOpacity: theme => theme('opacity'),
@@ -180,6 +185,7 @@ module.exports = {
       md: '0.375rem',
       lg: '0.5rem',
       full: '9999px',
+      '10px': '10px'
     },
     borderWidth: {
       default: '1px',
@@ -281,6 +287,7 @@ module.exports = {
     inset: {
       '0': '0',
       auto: 'auto',
+      '3': '3rem'
     },
     letterSpacing: {
       tighter: '-0.05em',
@@ -297,6 +304,7 @@ module.exports = {
       normal: '1.5',
       relaxed: '1.625',
       loose: '2',
+      '1': '1rem',
       '3': '.75rem',
       '4': '1rem',
       '5': '1.25rem',
@@ -339,11 +347,14 @@ module.exports = {
       '0': '0',
       '6': '1.5rem',
       full: '100%',
+      '3': '3rem',
       screen: '100vh',
     },
     minWidth: {
       '0': '0',
       '6': '1.5rem',
+      '2.5': '2.5rem',
+      '3': '3rem',
       full: '100%',
     },
     objectPosition: {

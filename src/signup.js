@@ -34,8 +34,7 @@ const SignUp = (props) => {
     };
 
     return (
-        <div className="w-screen justify-center h-screen items-center flex font-montserrat flex-col"
-            style={{ fontFamily: "montserrat" }}>
+        <div className="w-screen justify-center h-screen items-center flex font-montserrat flex-col">
             <div className="mb-12">
                 <img src={chat} />
             </div>

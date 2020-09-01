@@ -11,12 +11,11 @@ function Header(props) {
             <div className="flex items-center w-full">
             {props.isMobile ?
                 <div onClick={(e) => props.showSidebar()}>
-                    <img src={back} className="mb-2" style={{ width: "1.4rem", heeight: "1.4rem" }} />
+                    <img src={back} className="mb-2 w-7 h-7" />
                 </div>
                 : null}
                 <div className="flex flex-row h-full align-top ">
-                    <div className={`flex mx-4 rounded-full bg-purple-700 text-2xl font-bold text-gray-200  items-center justify-center`}
-                     style={{minWidth:"3rem", minHeight:"3rem"}}>
+                    <div className={`flex mx-4 rounded-full bg-purple-700 text-2xl font-bold text-gray-200  items-center justify-center min-w-3 min-h-3`}>
                         <span className="uppercase ">{userAvatar}</span>
                     </div>
                     <div className="flex flex-row  items-center">

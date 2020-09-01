@@ -48,13 +48,12 @@ function Sidebar(props) {
         <h2 className="text-purple-400 font-bold">Create new message</h2>
         <AddNewMessage chats={chats} closeModal={closeModal} />
       </Modal>
-      <div className="text-black w-full md:w-5/12 lg:w-4/12 pt-10 relative"
-        style={{ fontFamily: "montserrat" }}>
+      <div className="text-black w-full md:w-5/12 lg:w-4/12 pt-10 relative">
         <Logout />
         <div className="flex justify-between mb-6 px-4">
           <div className="flex items-center w-full justify-between">
             <div className="flex flex-row h-full align-top">
-              <div className="rounded-full text-white uppercase font-extrabold bg-purple-600 mr-4 items-center flex justify-center" style={{ width: "3.5rem", height: "3.5rem" }}>
+              <div className="rounded-full text-white uppercase font-extrabold bg-purple-600 mr-4 items-center flex justify-center w-13 h-13">
                 {props.email && props.email.charAt(0)}
               </div>
               <div className="text-sm">
@@ -63,8 +62,7 @@ function Sidebar(props) {
             </div>
           </div>
         </div>
-        <div className="absolute z-10 right-0 mr-2 mb-10 mr-6 bg-white rounded-full w-8 h-8"
-          style={{ top: "3rem" }}>
+        <div className="absolute z-10 right-0 mr-2 mb-10 mr-6 bg-white rounded-full w-8 h-8 top-3">
           <img src={plus} className="w-full h-full rounded-full" onClick={() => openModal()} />
         </div>
 
@@ -149,7 +147,6 @@ const AddNewMessage = props => {
           timestamp: Date.now()
         }]
       })
-    console.log(msg);
     props.closeModal();
   }
 
@@ -188,7 +185,7 @@ const AddNewMessage = props => {
 
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex items-center flex-col" style={{ width: "50vw", height: "50vh" }}>
+    <form onSubmit={handleSubmit(onSubmit)} className="flex items-center flex-col w-50vw h-50vh">
       <div className="p-2 w-full mt-10">
         <div className="relative mb-3 flex flex-wrap items-stretch">
           <span className="absolute z-10 py-3 pl-3 w-8 h-full leading-snug bg-transparent rounded text-base font-normal text-gray-400 text-center flex items-center justify-center">
@@ -223,12 +220,11 @@ const AddNewMessage = props => {
             <div className="flex">
               <input
                 id="message-input"
-                className="block w-full py-2 px-2 shadow-lg bg-white text-sm text-gray-700 border border-gray-100 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Write Something"
+                className="block rounded-10px w-full py-2 px-2 shadow-lg bg-white text-sm text-gray-700 border border-gray-100 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Write Something"
                 name="message"
                 ref={register({
                   required: "Field is required",
-                })}
-                style={{ borderRadius: "10px" }} />
+                })}/>
               <button type="submit" className="ml-2">
                 <img src={send} />
               </button>

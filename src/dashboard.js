@@ -61,7 +61,7 @@ const Dashboard = (props) => {
         return chats[chatIndex].messages[chats[chatIndex].messages.length - 1].sender !== email;
     }
 
-    const showSidebarFn= () =>{
+    const showSidebarFn = () => {
         setShowSidebar(true);
         setShowMessage(false);
     }
@@ -86,24 +86,24 @@ const Dashboard = (props) => {
     }, []);
     if (isMobile && showSidebar) {
         return (
-                <div className="flex mx-auto my-auto h-screen rounded">
-                    <Sidebar history={props.history} redirect={dashboardRedirect} email={email} chats={chats} isMobile={isMobile}/>
-                </div>
+            <div className="flex mx-auto my-auto h-screen rounded">
+                <Sidebar history={props.history} redirect={dashboardRedirect} email={email} chats={chats} isMobile={isMobile} />
+            </div>
         )
     }
     else if (isMobile && showMessage) {
         return (
-                <div className="flex mx-auto my-auto h-screen rounded">
-                    <Main history={props.history} id={selectedChat} chats={chats} email={email} sendMessage={sendMessage} isMobile={isMobile} showSidebar={showSidebarFn}/>
-                </div>
+            <div className="flex mx-auto my-auto h-screen rounded">
+                <Main history={props.history} id={selectedChat} chats={chats} email={email} sendMessage={sendMessage} isMobile={isMobile} showSidebar={showSidebarFn} />
+            </div>
         )
     }
     else {
         return (
-                <div className="flex mx-auto my-auto h-screen rounded">
-                    <Sidebar history={props.history} redirect={dashboardRedirect} email={email} chats={chats} isMobile={isMobile} setSelectedChat={setSelectedChat}/>
-                    <Main history={props.history} id={selectedChat} chats={chats} email={email} sendMessage={sendMessage} isMobile={isMobile} showSidebar={showSidebarFn}/>
-                </div>
+            <div className="flex mx-auto my-auto h-screen rounded">
+                <Sidebar history={props.history} redirect={dashboardRedirect} email={email} chats={chats} isMobile={isMobile} setSelectedChat={setSelectedChat} />
+                <Main history={props.history} id={selectedChat} chats={chats} email={email} sendMessage={sendMessage} isMobile={isMobile} showSidebar={showSidebarFn} />
+            </div>
         )
     }
 }
